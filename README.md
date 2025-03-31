@@ -25,11 +25,11 @@ conda activate tf212gpu_new
 
 
 ### ** 📌 Downloading Data:**
--  [GLEAM](https://www.gleam.eu/). Must contact developers and get the sftp information. Must save into directory 
--  [ERA5](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5). Must use CDS (Climate Data Store) and create your own credentials. 
--  [ERA5-Land](https://www.ecmwf.int/en/era5-land).  Must use CDS (Climate Data Store) and create your own credentials.
--  [GEFSv12](https://vlab.noaa.gov/web/osti-modeling/gefsv12). Can download with /Data/raw_downloads/GEFSv12 scripts. Use the run_parallel_all_regions.sh as the run file.
--  [ECMWF](https://apps.ecmwf.int/datasets/data/s2s/levtype=sfc/type=cf/). Can download with /Data/raw_downloads/ECMWF scripts. Follow the order of the Jupyter notebooks.
+-  [GLEAM](https://www.gleam.eu/). Must contact developers and get the sftp information. Must save into directory /Data/reanalysis.
+-  [ERA5](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5). Must use CDS (Climate Data Store) and create your own credentials. Must save into directory /Data/reanalysis.
+-  [ERA5-Land](https://www.ecmwf.int/en/era5-land).  Must use CDS (Climate Data Store) and create your own credentials. Must save into directory /Data/reanalysis.
+-  [GEFSv12](https://vlab.noaa.gov/web/osti-modeling/gefsv12). Can download with /Data/raw_downloads/GEFSv12 scripts. Use the run_parallel_all_regions.sh as the run file. Must save into directory /Data/reforecast.
+-  [ECMWF](https://apps.ecmwf.int/datasets/data/s2s/levtype=sfc/type=cf/). Can download with /Data/raw_downloads/ECMWF scripts. Follow the order of the Jupyter notebooks.  Must save into directory /Data/reforecast.
 
 ### ** 📌 Description of scripts and their purpose:**
 - 1.) 00_min_max_each_region_&reforecast.ipynb - Convert each data type to the same format across different data sources. Saves anomalies, and creates files formatted to work with tensorflow during training.
