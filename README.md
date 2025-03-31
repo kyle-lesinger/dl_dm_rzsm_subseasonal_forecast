@@ -43,7 +43,11 @@ conda activate tf212gpu_new
 - 9.) 04c_KGE_CONUS.ipynb - Save Kling-Gupte Efficiency (KGE) for CONUS.
 - 10.) 04d_Plot_permutation_test_results_UPDATE.ipynb - Plot the CONUS permutation tests.
 - 11.) 04e_autocorrelation_GLEAM.ipynb - Compute and plot the autocorrelation for each region.
-- 12.) 
+- 12.) 05a_create_percentile_FULL_DISTRIBUTION_OBS_GEFS_ECMWF_v9_multi.ipynb - Computes percentiles of the data from the training distribution (2000-2015) and creates a percentile of score with the testing distribution (2018-2019).
+- 13.) 05b_create_percentile_SMALL_DISTRIBUTION_OBS_GEFS_ECMWF_bias_corrected_v1.ipynb - Computes the percentile of score with only the testing distribution (2018-2019).
+- 14.) 05c_hitRate_CONUS.ipynb - Computes the true positive rate (aka the hit rate) for data according to a specific percentile distribution that is user selected.
+- 15.) 06a_ACC_spatial_plots_other_regions.ipynb - Plot spatial ACC results for a single experiment across different regions. Data **is not** separated by season.
+- 16.) 06b_ACC_CRPS_season_other_regions.ipynb - Plot spatial ACC results for a single experiment across different regions. Data **is** separated by season.
 
 
 
