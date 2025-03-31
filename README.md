@@ -32,9 +32,9 @@ conda activate tf212gpu_new
 -  [ECMWF](https://apps.ecmwf.int/datasets/data/s2s/levtype=sfc/type=cf/). Can download with /Data/raw_downloads/ECMWF scripts. Follow the order of the Jupyter notebooks.
 
 ### ** 📌 Description of scripts and their purpose:**
-1.) 00_min_max_each_region_&reforecast.ipynb - Convert each data type to the same format across different data sources. Saves anomalies, and creates files formatted to work with tensorflow during training.
-2.) 01_make_small_plots_for_diagram.ipynb - Plots some of the files to ensure that they look acceptable.
-3.) 01a_bias_correct_raw_GEFS_ECMWF.ipynb - Bias correct raw GEFSv12 and ECMWF files (use additive mean bias correction).
+- 1.) 00_min_max_each_region_&reforecast.ipynb - Convert each data type to the same format across different data sources. Saves anomalies, and creates files formatted to work with tensorflow during training.
+- 2.) 01_make_small_plots_for_diagram.ipynb - Plots some of the files to ensure that they look acceptable.
+- 3.) 01a_bias_correct_raw_GEFS_ECMWF.ipynb - Bias correct raw GEFSv12 and ECMWF files (use additive mean bias correction).
 
 
 
