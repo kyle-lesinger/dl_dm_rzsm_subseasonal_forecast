@@ -16,15 +16,6 @@ gleam_data = f'{home}/Data/reanalysis/GLEAM'
 era_data = f'{home}/Data/reanalysis/ERA5'
 base_reanalysis = f'{home}/Data/reanalysis'
 
-def return_bias_corrected_anomaly(region_name, reforecast, obs_source):
-    if reforecast == 'GEFSv12':
-        name = 'gefs'
-    elif reforecast == 'ECMWF':
-        name = 'ecmwf'
-        
-    bc_file = f'{home}/Data/bias_corrected_reforecast/{region_name}/{name}_anomaly_values_bias_corrected_testing_years_{obs_source}.nc'
-    return bc_file
-    
 
 def return_data_directories(reforecast_input, region_name):
     #Gleam observations
