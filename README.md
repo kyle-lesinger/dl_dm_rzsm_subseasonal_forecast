@@ -35,7 +35,13 @@ conda activate tf212gpu_new
 - 1.) 00_min_max_each_region_&reforecast.ipynb - Convert each data type to the same format across different data sources. Saves anomalies, and creates files formatted to work with tensorflow during training.
 - 2.) 01_make_small_plots_for_diagram.ipynb - Plots some of the files to ensure that they look acceptable.
 - 3.) 01a_bias_correct_raw_GEFS_ECMWF.ipynb - Bias correct raw GEFSv12 and ECMWF files (use additive mean bias correction).
-
+- 4.) 02_run_model_EXPERIMENTS_ECMWF_and_GEFSv12_v5.ipynb - Train deep learning models. Save predictions. Compute permutation test.
+- 5.) 03a_save_ACC_for_each_lead_and_experiment.ipynb - Save anomaly correlation coefficient values (ACC) for each experiment type.
+- 6.) 03b_save_CRPSS_for_each_lead_and_experiment.ipynb - Save continous ranked probability score values (CRPS) for each experiment type.
+- 7.) 04a_ACC_CRPSS_hitRate_CONUS.ipynb - Create plots for the ACC and CRPS for each experiment type. Spatial plots and line plots included. Only for CONUS region which included multiple experiments.
+- 8.) 04b_ACC_CRPSS_hitRate_season_CONUS.ipynb - Create plots for the ACC and CRPS for each experiment type. Spatial plots and line plots included. Only for China and Australia.
+-  - Bias correct raw GEFSv12 and ECMWF files (use additive mean bias correction).
+- 5.)
 
 
 
