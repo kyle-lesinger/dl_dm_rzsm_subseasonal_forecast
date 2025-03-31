@@ -40,7 +40,7 @@ conda activate tf212gpu_new
 - 6.) 03b_save_CRPSS_for_each_lead_and_experiment.ipynb - Save continous ranked probability score values (CRPS) for each experiment type.
 - 7.) 04a_ACC_CRPSS_hitRate_CONUS.ipynb - Create plots for the ACC and CRPS for each experiment type. Spatial plots and line plots included. Only for CONUS region which included multiple experiments. Data **is not** separated by season.
 - 8.) 04b_ACC_CRPSS_hitRate_season_CONUS.ipynb - Create plots for the ACC and CRPS for each experiment type. Spatial plots and line plots included. Only for CONUS region which included multiple experiments. Data **is** separated by season.
-- 9.) 04c_KGE_CONUS.ipynb - Save Kling-Gupte Efficiency (KGE) for CONUS.
+- 9.) 04c_KGE_CONUS.ipynb - Compute Kling-Gupte Efficiency (KGE) for CONUS.
 - 10.) 04d_Plot_permutation_test_results_UPDATE.ipynb - Plot the CONUS permutation tests.
 - 11.) 04e_autocorrelation_GLEAM.ipynb - Compute and plot the autocorrelation for each region.
 - 12.) 05a_create_percentile_FULL_DISTRIBUTION_OBS_GEFS_ECMWF_v9_multi.ipynb - Computes percentiles of the data from the training distribution (2000-2015) and creates a percentile of score with the testing distribution (2018-2019).
@@ -48,6 +48,12 @@ conda activate tf212gpu_new
 - 14.) 05c_hitRate_CONUS.ipynb - Computes the true positive rate (aka the hit rate) for data according to a specific percentile distribution that is user selected.
 - 15.) 06a_ACC_spatial_plots_other_regions.ipynb - Plot spatial ACC results for a single experiment across different regions. Data **is not** separated by season.
 - 16.) 06b_ACC_CRPS_season_other_regions.ipynb - Plot spatial ACC results for a single experiment across different regions. Data **is** separated by season.
+- 17.) 07a_forecast_CRPSS_bootstraps_v1.ipynb - Compute bootstrap continous ranked probability skill score (CRPSS).
+- 18.) 07b_plot_forecast_CRPSS_bootstraps_v1.ipynb - Plot CRPSS.
+- 19.) 07c_SIMULATION_sampling_v1.ipynb - Comptue different metrics across all regions based on sampling methods.
+- 20.) 08a_CASE_STUDY.ipynb - Plot case studies for each region.
+- 21.) 09a_taylorDiagram.ipynb - Create Taylor diagrams for each region.
+- 
 
 
 
