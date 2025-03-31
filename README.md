@@ -13,8 +13,8 @@ conda activate tf212gpu_new
 ```
 
 ## **📌 Restrictions**
-1.) For training the deep-learning models, you must be access to a GPU with at least 32GB RAM.
-2.) For some other functions, as high as 80GB RAM may be needed for pre-processing.
+- 1.) For training the deep-learning models, you must be access to a GPU with at least 32GB RAM.
+- 2.) For some other functions, as high as 80GB RAM may be needed for pre-processing.
 
 
 
