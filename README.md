@@ -21,12 +21,24 @@ conda activate tf212gpu_new
 ### ** 📌 Features:**
 - ✅ **Data Analysis** Can accomodate any reanalysis/reforecast as input if the data is an xarray object and you have a gridded mask file with the data coordinates that you want. (See /masks for example .nc4 and .grd files). Current datasets which have been studied within the manuscript include reanalysis products [GLEAM](https://www.gleam.eu/), [ERA5](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5), [ERA5-Land](https://www.ecmwf.int/en/era5-land); and subseasonal reforecast products [GEFSv12](https://vlab.noaa.gov/web/osti-modeling/gefsv12) and [ECMWF](https://apps.ecmwf.int/datasets/data/s2s/levtype=sfc/type=cf/).
 - ✅ **Regional Training** Currently training was only completed on the contiguous United States, China, and Australia. But training can be altered if you have additional mask files (see /masks).
+- ✅ **Setting path locations for data** Use the /function/conf.py to setup absolute paths. Can also add additional datapaths if new sources are added.
 
 
 ### ** 📌 Downloading Data:**
--  [GLEAM](https://www.gleam.eu/). Must contact developers and get the sftp information.
--  [ERA5-Land](https://www.ecmwf.int/en/era5-land); and subseasonal reforecast products [GEFSv12](https://vlab.noaa.gov/web/osti-modeling/gefsv12) and [ECMWF](https://apps.ecmwf.int/datasets/data/s2s/levtype=sfc/type=cf/).
-- ✅ **Regional Training** Currently training was only completed on the contiguous United States, China, and Australia. But training can be altered if you have additional mask files (see /masks).
+-  [GLEAM](https://www.gleam.eu/). Must contact developers and get the sftp information. Must save into directory 
+-  [ERA5](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5). Must use CDS (Climate Data Store) and create your own credentials. 
+-  [ERA5-Land](https://www.ecmwf.int/en/era5-land).  Must use CDS (Climate Data Store) and create your own credentials.
+-  [GEFSv12](https://vlab.noaa.gov/web/osti-modeling/gefsv12). Can download with /Data/raw_downloads/GEFSv12 scripts. Use the run_parallel_all_regions.sh as the run file.
+-  [ECMWF](https://apps.ecmwf.int/datasets/data/s2s/levtype=sfc/type=cf/). Can download with /Data/raw_downloads/ECMWF scripts. Follow the order of the Jupyter notebooks.
+
+### ** 📌 Description of scripts and their purpose:**
+1.) 00_min_max_each_region_&reforecast.ipynb - Convert each data type to the same format across different data sources. Saves anomalies, and creates files formatted to work with tensorflow during training.
+2.) 01_make_small_plots_for_diagram.ipynb - Plots some of the files to ensure that they look acceptable.
+3.) 01a_bias_correct_raw_GEFS_ECMWF.ipynb - Bias correct raw GEFSv12 and ECMWF files (use additive mean bias correction).
+
+
+
+
 
 ## **📜 Authors** Kyle Lesinger, Di Tian
 
