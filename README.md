@@ -12,30 +12,17 @@ conda env create -f conda_environment_setup.yaml
 conda activate tf212gpu_new
 ```
 
-### **Features:**
-
-### **Features:**
-- ✅ **Extracts** metadata, structured tables, and formatted text from DOCX (use file test_LIS.docx for the proper format)
-- ✅ **Handles multi-layered data** (e.g., having more than one input layer)
-- ✅ **Converts colors** between **Hex ↔ RGB** if needed
-- ✅ **Appends structured prose sections** dynamically
-
-
-
 ## **📌 Restrictions**
-This currently should only be run with a **single landing page collection**. For example, Land Information System - Alaska in ```fill template/test_LIS.docx``` will have four different layers, but will be featured on [VEDA data catalog](https://www.earthdata.nasa.gov/dashboard/data-catalog/global-reanalysis-da) as a single item. In the previous link (for a different dataset), all of the information will be populated and when clicking [Explore Data](https://www.earthdata.nasa.gov/dashboard/exploration?search=global-reanalysis-da&datasets=%5B%5D&taxonomy=%7B%7D) each of the individual layers will be populated based on the information you add. This script will support an infinite number of layers (as long as the same formatting between layers is used). 
-
----
-
+1.) For training the deep-learning models, you must be access to a GPU with at least 32GB RAM.
+2.) For some other functions, as high as 80GB RAM may be needed for pre-processing.
 
 
-### **🔹 Required Dependencies** (no new conda environment)
-Ensure you have **Python >=3.7** installed
-Run:
-```bash
-pip install -r setup/requirements.txt
-```
----
+
+### **Features:**
+- ✅ **Data Analysis** Can accomodate any reanalysis/reforecast as input if the data is an xarray object and you have a gridded mask file with the data coordinates that you want. (See /masks for example .nc4 and .grd files). Current datasets which have been studied within the manuscript include reanalysis products [GLEAM](https://www.gleam.eu/) and [ERA5-Land](https://www.ecmwf.int/en/era5-land); and subseasonal reforecast products [GEFSv12](https://vlab.noaa.gov/web/osti-modeling/gefsv12) and [ECMWF](https://apps.ecmwf.int/datasets/data/s2s/levtype=sfc/type=cf/).
+
+
+
 
 ## **📝 Usage**
 ### **🔹 Converting a DOCX file to MDX**
