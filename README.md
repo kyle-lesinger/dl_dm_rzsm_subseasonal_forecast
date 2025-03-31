@@ -40,8 +40,10 @@ conda activate tf212gpu_new
 - 6.) 03b_save_CRPSS_for_each_lead_and_experiment.ipynb - Save continous ranked probability score values (CRPS) for each experiment type.
 - 7.) 04a_ACC_CRPSS_hitRate_CONUS.ipynb - Create plots for the ACC and CRPS for each experiment type. Spatial plots and line plots included. Only for CONUS region which included multiple experiments.
 - 8.) 04b_ACC_CRPSS_hitRate_season_CONUS.ipynb - Create plots for the ACC and CRPS for each experiment type. Spatial plots and line plots included. Only for China and Australia.
--  - Bias correct raw GEFSv12 and ECMWF files (use additive mean bias correction).
-- 5.)
+- 9.) 04c_KGE_CONUS.ipynb - Save Kling-Gupte Efficiency (KGE) for CONUS.
+- 10.) 04d_Plot_permutation_test_results_UPDATE.ipynb - Plot the CONUS permutation tests.
+- 11.) 04e_autocorrelation_GLEAM.ipynb - Compute and plot the autocorrelation for each region.
+- 12.) 
 
 
 
