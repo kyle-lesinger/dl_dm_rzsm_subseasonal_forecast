@@ -55,9 +55,6 @@ conda activate tf212gpu_new
 - 21.) 09a_taylorDiagram.ipynb - Create Taylor diagrams for each region.
 
 
-
-
-
 ## **📜 Authors** Kyle Lesinger, Di Tian
 
 ## **📜 License**
