@@ -12,6 +12,7 @@ from function import funs as f
 from function import preprocessUtils as putils
 from function import masks
 from function import conf
+from function import dataLoad
 
 
 
@@ -64,16 +65,16 @@ def open_obs_and_baseline_files(region_name, week_lead, day_num, start_, end_, m
     baseline_ecmwf_file_list = sorted(glob(f'{conf.ecmwf_data}/{region_name}/baseline_RZSM_anomaly/soil*{pd.to_datetime(start_).year}*.nc'))
     baseline_ecmwf = xr.open_mfdataset(baseline_ecmwf_file_list).sel(L=[day_num]).sel(S=slice(start_,end_)).load()
 
-    ecmwf_bias_corrected = xr.open_dataset(conf.return_bias_corrected_anomaly(region_name, 'ECMWF', obs_source)).isel(lead=[6,13,20,27,34]).rename({'init':'S','member':'M','lead': 'L','lat':'Y','lon':'X'})
-    gefs_bias_corrected = xr.open_dataset(conf.return_bias_corrected_anomaly(region_name, 'GEFSv12', obs_source)).isel(lead=[6,13,20,27,34]).rename({'init':'S','member':'M','lead': 'L','lat':'Y','lon':'X'})
+    # ecmwf_bias_corrected = xr.open_dataset(dataLoad.return_bias_corrected_anomaly(region_name, 'ECMWF', obs_source)).isel(lead=[6,13,20,27,34]).rename({'init':'S','member':'M','lead': 'L','lat':'Y','lon':'X'})
+    # gefs_bias_corrected = xr.open_dataset(dataLoad.return_bias_corrected_anomaly(region_name, 'GEFSv12', obs_source)).isel(lead=[6,13,20,27,34]).rename({'init':'S','member':'M','lead': 'L','lat':'Y','lon':'X'})
 
-    ecmwf_bias_corrected['L'] = [6,13,20,27,34]
-    gefs_bias_corrected['L'] = [6,13,20,27,34]
+    # ecmwf_bias_corrected['L'] = [6,13,20,27,34]
+    # gefs_bias_corrected['L'] = [6,13,20,27,34]
     
-    ecmwf_bias_corrected=ecmwf_bias_corrected.sel(L=[day_num]).sel(S=slice(start_,end_)).load()
-    gefs_bias_corrected=gefs_bias_corrected.sel(L=[day_num]).sel(S=slice(start_,end_)).load()
+    # ecmwf_bias_corrected=ecmwf_bias_corrected.sel(L=[day_num]).sel(S=slice(start_,end_)).load()
+    # gefs_bias_corrected=gefs_bias_corrected.sel(L=[day_num]).sel(S=slice(start_,end_)).load()
     #Need to open a template of ECMWF to mask the np.nan values that
-    return(obs_anomaly_SubX_format_testing, baseline_anomaly, baseline_ecmwf, var_OUT, template_testing_only,ecmwf_bias_corrected,gefs_bias_corrected)
+    return(obs_anomaly_SubX_format_testing, baseline_anomaly, baseline_ecmwf, var_OUT, template_testing_only)
 
 
 def open_only_testing_anomaly_baseline_files(region_name, week_lead, day_num, mask_anom, test_start, test_end):

@@ -373,6 +373,16 @@ def create_climpred_CRPSS_no_chunk(fcst, obs):
     object_ = hcast.add_observations(obs)
     return object_.verify(metric="crpss", comparison="m2o", dim="member", alignment="same_inits").rename({fcst_name: 'crpss'}).load()
 
+def create_climpred_CRPS_no_chunk(fcst, obs):
+    '''For some reason the data from additive bias correction is incorrectly chunked, so this will fix it. But it's pretty slow'''
+    fcst_name = list(fcst.keys())[0]
+    # Ensure forecast dataset is chunked correctly
+    hcast = climpred.HindcastEnsemble(fcst)
+    # Ensure observation dataset is chunked consistently
+    object_ = hcast.add_observations(obs)
+    return object_.verify(metric="crps", comparison="m2o", dim="member", alignment="same_inits").rename({fcst_name: 'crps'}).load()
+
+
 def create_climpred_ACC_persistence(fcst,obs):
     fcst_name = list(fcst.keys())[0]
     object_ =  climpred.HindcastEnsemble(fcst).add_observations(obs)
