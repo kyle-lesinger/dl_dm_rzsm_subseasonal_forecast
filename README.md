@@ -52,8 +52,10 @@ conda activate tf212gpu_new
 - 18.) 07b_plot_forecast_CRPSS_bootstraps_v1.ipynb - Plot CRPSS.
 - 19.) 07c_SIMULATION_sampling_v1.ipynb - Comptue different metrics across all regions based on sampling methods.
 - 20.) 08a_CASE_STUDY.ipynb - Plot case studies for each region.
+- 21.) O8b - 08e.ipynb - Compute CRPSS based on climatology, persistence, or using the raw forecast as the reference.
 - 21.) 09a_taylorDiagram.ipynb - Create Taylor diagrams for each region.
 
+## Functions to call within each jupyter notebook are located in directory /function
 
 ## **📜 Authors** Kyle Lesinger, Di Tian
 
