@@ -54,6 +54,12 @@ conda activate tf212gpu_new
 - 20.) 08a_CASE_STUDY.ipynb - Plot case studies for each region.
 - 21.) 08b - 08e.ipynb - Compute CRPSS based on climatology, persistence, or using the raw reforecast as the reference.
 - 22.) 09a_taylorDiagram.ipynb - Create Taylor diagrams for each region.
+- 23.) 02b1_shap_gradient_explainer_ATEST.ipynb - Tests SHAP gradient explainer with different background sample sizes to assess robustness of feature importance estimates.
+- 24.) 02b1_shap_gradient_explainer_PLOT.ipynb & PLOT-A.ipynb - Visualizes SHAP value distributions and feature importance across different background sample sizes.
+- 25.) 02b2_shap_gradient_explainer_BTEST.ipynb - Additional testing of SHAP gradient explainer with alternative configurations.
+- 26.) 02b2_shap_gradient_explainer_PLOT-B.ipynb - Plots results from the second SHAP gradient explainer test.
+- 27.) 02b3_shap_gradient_explainer_PLOT-FINAL.ipynb - Creates final consolidated SHAP gradient explainer visualizations.
+- 28.) 02b4_shap_gradient_sample_explainer.ipynb - Implements SHAP gradient explainer for individual sample analysis.
 
 ## Functions to call within the jupyter notebooks are in directory /function
 
