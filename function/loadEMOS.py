@@ -2,6 +2,8 @@
 from glob import glob
 import xarray as xr
 from function import verifications
+from function import preprocessUtils as putils
+from function import dataLoad
 import numpy as np
 
 
@@ -37,6 +39,6 @@ def return_EMOS_average(region_name,test_start,test_end,obs_original,df_acc, df_
     e_acc = xr.where(mm==True,e_acc,np.nan)
     e_crps = xr.where(mm==True,e_crps,np.nan)
     
-    df_acc = add_lineplot_to_dataframe(df_acc,e_acc,'EMOS', 'ACC',10,'mean')
-    df_crps = add_lineplot_to_dataframe(df_crps,e_crps,'EMOS', 'CRPS',10,'median')
+    df_acc = dataLoad.add_lineplot_to_dataframe(df_acc,e_acc,'EMOS', 'ACC',10,'mean')
+    df_crps = dataLoad.add_lineplot_to_dataframe(df_crps,e_crps,'EMOS', 'CRPS',10,'median')
     return df_acc, df_crps

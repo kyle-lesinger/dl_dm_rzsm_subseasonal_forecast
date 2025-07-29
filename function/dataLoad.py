@@ -145,3 +145,108 @@ def load_GEFSv12_percentile_anomaly(region_name: str, testing_dist, test_start, 
         files = sorted(glob(f'{conf.ecmwf_data}/{region_name}/soilw_bgrnd/percentiles_MEM/*'))
     datasets = [xr.open_dataset(f) for f in files]
     return xr.concat(datasets, dim="S").sel(S=slice(test_start,test_end))
+
+def add_lineplot_to_dataframe(df,fcst_vals,name_of_fcst, metric,week, mean_or_median):
+    # df = pd.DataFrame()
+    def return_color(name_of_fcst):
+        black = ['EX0','EX13'] # bias-corrected DL
+        red = ['EX14','EX15','EX16','EX17','EX22','EX23','EX24','EX25'] #Observation driven
+        blue = ['EX1','EX2','EX3','EX4','EX5','EX6','EX7','EX8','EX9','EX10','EX11','EX12',
+               'EX18','EX19','EX20','EX21','EX27','EX28','EX29'] #Hybrid
+
+        black2 = ['DM-BC_DL']
+        red2 = ['DL']
+        blue2 = ['DL-DM']
+        
+        green = ['ECMWF','GEFSv12']
+        
+        purple = 'NWP_BC'
+
+        yellow = 'EMOS'
+
+        if (name_of_fcst in black) or (name_of_fcst in black2):
+            color = 'black'
+        elif (name_of_fcst in red) or (name_of_fcst in red2):
+            color = 'red'
+        elif (name_of_fcst in blue) or (name_of_fcst in blue2):
+            color = 'blue'
+        elif name_of_fcst in green:
+            color = 'green'
+        elif purple in name_of_fcst:
+            color = 'purple'
+        elif yellow in name_of_fcst:
+            color = 'yellow'
+        return(color)
+
+    if week==10:
+        for idx,lead in enumerate([6,13,20,27]):
+            if mean_or_median == 'mean':
+                try:
+                    data = fcst_vals.sel(lead=lead).mean()[putils.xarray_varname(fcst_vals)].values
+                except KeyError:
+                    data = fcst_vals.mean()[putils.xarray_varname(fcst_vals)].values
+            if mean_or_median == 'median':
+                try:
+                    data = fcst_vals.sel(lead=lead).median()[putils.xarray_varname(fcst_vals)].values
+                except KeyError:
+                    data = fcst_vals.median()[putils.xarray_varname(fcst_vals)].values
+            dict_ = {'Forecast':[name_of_fcst], 'Week':[idx+1], f'{metric}': [data], 'Color':return_color(name_of_fcst)}
+            df = pd.concat([df,pd.DataFrame.from_dict(dict_)])
+    else:
+        if mean_or_median == 'mean':
+            data = fcst_vals.mean()[putils.xarray_varname(fcst_vals)].values
+        elif mean_or_median == 'median':
+            data = fcst_vals.median()[putils.xarray_varname(fcst_vals)].values
+        dict_ = {'Forecast':[name_of_fcst], 'Week':[week], f'{metric}': [data], 'Color':return_color(name_of_fcst)}
+        df = pd.concat([df,pd.DataFrame.from_dict(dict_)])
+
+    return(df)
+
+
+def add_lineplot_to_dataframe_average(df,fcst_vals,name_of_fcst, metric,week, mean_or_median):
+    # df = pd.DataFrame()
+
+    def return_color(name_of_fcst):
+        black = ['DM-BC_DL']
+        red = ['DL']
+        blue = ['DL-DM']
+        
+        green = ['ECMWF','GEFSv12']
+        
+        purple = 'XGBOOST'
+
+        yellow = 'EMOS'
+
+        if name_of_fcst in black:
+            color = 'black'
+        elif name_of_fcst in red:
+            color = 'red'
+        elif name_of_fcst in blue:
+            color = 'blue'
+        elif name_of_fcst in green:
+            color = 'green'
+        elif purple in name_of_fcst:
+            color = 'purple'
+        elif yellow in name_of_fcst:
+            color = 'yellow'
+            
+        return(color)
+
+    if week==10:
+        for idx,lead in enumerate([6,13,20,27]):
+            if mean_or_median == 'mean':
+                data = fcst_vals.sel(lead=lead).mean()[putils.xarray_varname(fcst_vals)].values
+            elif mean_or_median == 'median':
+                data = fcst_vals.sel(lead=lead).median()[putils.xarray_varname(fcst_vals)].values
+            dict_ = {'Forecast':[name_of_fcst], 'Week':[idx+1], f'{metric}': [data], 'Color':return_color(name_of_fcst)}
+            df = pd.concat([df,pd.DataFrame.from_dict(dict_)])
+    else:
+        if mean_or_median == 'mean':
+            data = fcst_vals.mean()[putils.xarray_varname(fcst_vals)].values
+        elif mean_or_median == 'median':
+            data = fcst_vals.median()[putils.xarray_varname(fcst_vals)].values
+            
+        dict_ = {'Forecast':[name_of_fcst], 'Week':[week], f'{metric}': [data], 'Color':return_color(name_of_fcst)}
+        df = pd.concat([df,pd.DataFrame.from_dict(dict_)])
+    
+    return(df)
